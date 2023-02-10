@@ -1,0 +1,24 @@
+{
+  "name": "btcjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "nodemon ./src/app.js"
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "bip32": "^3.1.0",
+    "bip39": "^3.0.4",
+    "bitcoinjs-lib": "^6.1.0",
+    "bitcore-lib": "^8.25.46",
+    "dotenv": "^16.0.3",
+    "ecpair": "^2.1.0",
+    "node-fetch": "^3.3.0",
+    "nodemon": "^2.0.20",
+    "regtest-client": "^0.2.0",
+    "tiny-secp256k1": "^2.2.1"
+  }
+}
