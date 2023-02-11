@@ -1,14 +1,13 @@
-import fetch from "node-fetch";
+import fetch from 'node-fetch';
 
-
-export const getAddressBalance = async (address) => {
+export const getAddressBalance = async address => {
   const url = process.env.TESTNET_BITAPS_API;
-  const route = process.env.ADDR_ROUTE;
+  const route = '/address/state';
 
   const requestUrl = `${url}${route}/${address}`;
 
   const options = {
-    method: "GET",
+    method: 'GET',
   };
 
   const response = await (await fetch(requestUrl, options)).text();
@@ -23,7 +22,7 @@ export const getAddressBalance = async (address) => {
 
   const balance = responseData.data.balance;
 
-  console.log("Balance: %o ", { balance });
+  console.log('Balance: %o ', { balance });
 
   return balance;
 };

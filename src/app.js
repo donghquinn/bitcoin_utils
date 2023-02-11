@@ -13,7 +13,7 @@ const test = async (fromAddress, wif, toAddress, value, fee) => {
   try {
     const mnemonic = generateMnemonic();
 
-    const { seed } = generateSeedandXpriv(mnemonic);
+    // const { seed } = generateSeedandXpriv(mnemonic);
 
     const { address } = await createAddress(mnemonic);
 
