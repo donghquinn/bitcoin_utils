@@ -5,9 +5,13 @@ import fetch from 'node-fetch';
  * @param {*} address fromAddress
  * @returns fromAddress의 거래 내역 중 vOut의 scriptPubKey와 그 인덱스 값
  */
-export const getLists = async address => {
+export const getLists = async (address, networkType) => {
   try {
-    const url = process.env.TESTNET_NODE;
+    let url;
+
+    if (networkType === "main") url = process.env.MAINNET_NODE;
+    if (networkType === "test") url = process.env.TESTNET_NODE;
+
 
     const headers = {
       authorization: toBasicAuth('testuser', '1234'),

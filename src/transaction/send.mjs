@@ -26,7 +26,10 @@ export const sendToAddress = async txId => {
   };
 
   // // const quickNodeUrl = `${process.env.TESTNET_URL}/${process.env.TESTNET_TOKEN}`;
-  const nodeUrl = process.env.TESTNET_NODE;
+  let nodeUrl;
+
+  if (networkType === "main") nodeUrl = process.env.MAINNET_NODE;
+  if (networkType === "test") nodeUrl = process.env.TESTNET_NODE;
 
   const response = await (await fetch(nodeUrl, options)).json();
 

@@ -2,6 +2,7 @@ import fetch from 'node-fetch';
 
 export const getAddressBalance = async address => {
   const url = process.env.TESTNET_BITAPS_API;
+
   const route = '/address/state';
 
   const requestUrl = `${url}${route}/${address}`;

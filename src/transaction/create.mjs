@@ -26,7 +26,15 @@ export const createTransaction = async (
   index,
   txid,
   hex,
+  networkType
 ) => {
+
+  let networkType;
+
+  if (networkType === "test") networkType = bitcoin.networks.testnet;
+
+  if (networkType === "main") networkType = bitcoin.networks.bitcoin;
+
   try {
     console.log('Parameters: %o', {
       fromAddress,
@@ -37,7 +45,7 @@ export const createTransaction = async (
       hex,
     });
 
-    const signer = ECPair.fromWIF(wif, bitcoin.networks.testnet);
+    const signer = ECPair.fromWIF(wif, networkType);
     const privateKey = signer.privateKey.toString('hex');
 
     console.log('privateKey: %o', {
