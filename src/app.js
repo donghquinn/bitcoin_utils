@@ -5,22 +5,26 @@ import { generateMnemonic } from "./address/mnemonic.mjs";
 import { getLists } from "./transaction/list.mjs";
 import { sendToAddress } from "./transaction/send.mjs";
 import { createTransaction } from "./transaction/create.mjs";
+import { getAddressBalance } from './address/balance.mjs';
 
 config();
 
-const test = async () => {
+const test = async (fromAddress, wif, toAddress, value, fee, networkType) => {
   try {
     const mnemonic = generateMnemonic();
 
-    const { seed } = generateSeedandXpriv(mnemonic);
+    // const { seed } = generateSeedandXpriv(mnemonic);
 
-    const address = await createAddress(mnemonic);
+    const { address } = await createAddress(mnemonic, networkType);
 
-    const { script1, voutTx1Index, script2, voutTx2Index, txid, hex } = await getLists(address);
+    const balance = await getAddressBalance(address)
 
-    const transaction = await createTransaction("n1NvevFeaYgFmBL15BrSvzVjP47HBuMWS6", 100, "cSWKxuTdkxSvoP15Jasc1EJrEb8R89qZmK6nPPwyscwRq6wPNwHe", address, script1, script2, txid, hex);
+    const { script, index, txid, hex } = await getLists(address, networkType);
 
-    // await sendToAddress(transaction);
+    // TODO WIF 관리 (저장 위치 등)
+    const transaction = await createTransaction(fromAddress, value, balance, fee, wif, toAddress, script, index, txid, hex, networkType);
+
+    await sendToAddress(transaction, networkType);
   } catch (error) {
     console.log(error);
     throw new Error(error);
