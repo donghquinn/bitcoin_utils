@@ -24,5 +24,5 @@ export const generateSeedandXpriv = (mnemonic, network) => {
 
   const xpriv = bip32.fromSeed(seed, networkType);
 
-  return { seed, xpriv };
+  return { xpriv, networkType };
 };

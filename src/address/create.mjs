@@ -46,17 +46,17 @@ export const isValidAddress = async (address, networkType) => {
 
 // 주소 생성 및 암호화 된 시드 값 리턴
 export const createAddress = async (menemonic, networkType) => {
-  const { xpriv } = generateSeedandXpriv(menemonic, networkType);
+  const { xpriv, networkType } = generateSeedandXpriv(menemonic, networkType);
 
   const wif = xpriv.toWIF();
   const { publicKey, privateKey } = ECPair.fromWIF(
     wif,
-    bitcoin.networks.testnet,
+    networkType,
   );
 
   const payment = bitcoin.payments.p2pkh({
     pubkey: publicKey,
-    network: bitcoin.networks.testnet,
+    network: networkType,
   });
 
   console.log('Address: %o', {
