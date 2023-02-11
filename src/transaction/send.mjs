@@ -7,7 +7,7 @@ import fetch from 'node-fetch';
  * @param vout
  * @returns
  */
-export const sendToAddress = async txId => {
+export const sendToAddress = async (txId, networkType) => {
   const headers = {
     authorization: toBasicAuth('testuser', '1234'),
     'content-type': 'text/plain',

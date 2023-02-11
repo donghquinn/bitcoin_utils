@@ -15,16 +15,16 @@ const test = async (fromAddress, wif, toAddress, value, fee, networkType) => {
 
     // const { seed } = generateSeedandXpriv(mnemonic);
 
-    const { address } = await createAddress(mnemonic);
+    const { address } = await createAddress(mnemonic, networkType);
 
     const balance = await getAddressBalance(address)
 
-    const { script, index, txid, hex } = await getLists(address);
+    const { script, index, txid, hex } = await getLists(address, networkType);
 
     // TODO WIF 관리 (저장 위치 등)
-    const transaction = await createTransaction(fromAddress, value, balance, fee, wif, toAddress, script, index, txid, hex);
+    const transaction = await createTransaction(fromAddress, value, balance, fee, wif, toAddress, script, index, txid, hex, networkType);
 
-    await sendToAddress(transaction);
+    await sendToAddress(transaction, networkType);
   } catch (error) {
     console.log(error);
     throw new Error(error);

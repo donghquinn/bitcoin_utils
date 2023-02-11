@@ -10,6 +10,7 @@ export const restoreAddress = mnemonic => {
   }
 
   const seed = bip39.mnemonicToSeedSync(mnemonic);
+
   const xpriv = bip32.fromSeed(seed);
 
   const wif = xpriv.toWIF();
