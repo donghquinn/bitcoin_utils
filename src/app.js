@@ -17,7 +17,7 @@ const test = async (fromAddress, wif, toAddress, value, fee, networkType) => {
 
     const { address } = await createAddress(mnemonic, networkType);
 
-    const balance = await getAddressBalance(address)
+    const balance = await getAddressBalance(address, networkType)
 
     const { script, index, txid, hex } = await getLists(address, networkType);
 
