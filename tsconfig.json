@@ -10,7 +10,7 @@
     "allowJs": false,
     "strict": true, 
     "target": "ESNext",
-    "module": "esnext",
+    "module": "ESNext",
     "moduleResolution": "node",
     "forceConsistentCasingInFileNames": true,
     "noFallthroughCasesInSwitch": true,
