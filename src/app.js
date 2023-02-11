@@ -31,7 +31,6 @@ const test = async (fromAddress, wif, toAddress, value, fee, networkType) => {
   }
 }
 
-await test();
 /**
  * mnemonic - 완료
  * createAddress - 완료
