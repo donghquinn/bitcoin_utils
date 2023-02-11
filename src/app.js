@@ -9,6 +9,14 @@ import { getAddressBalance } from './address/balance.mjs';
 
 config();
 
+/**
+ * @param {*} fromAddress string
+ * @param {*} wif string
+ * @param {*} toAddress string
+ * @param {*} value number
+ * @param {*} fee number
+ * @param {*} networkType main | test
+ */
 const test = async (fromAddress, wif, toAddress, value, fee, networkType) => {
   try {
     const mnemonic = generateMnemonic();
