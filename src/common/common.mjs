@@ -9,3 +9,7 @@ export const validator = (
   msghash,
   signature
 ) => ECPair.fromPublicKey(pubkey).verify(msghash, signature);
+
+export const satoshiConverter = (value) => {
+  return value / 10 ** 9;
+};

@@ -47,7 +47,6 @@ export const createAddress = async (menemonic) => {
   const { xpriv } = generateSeedandXpriv(menemonic);
 
   const wif = xpriv.toWIF();
-  const privates = xpriv.toBase58();
   const { publicKey, privateKey } = ECPair.fromWIF(
     wif,
     bitcoin.networks.testnet
@@ -67,17 +66,12 @@ export const createAddress = async (menemonic) => {
 
   await isValidAddress(payment.address);
 
-
-
-  // TODO xpriv 값 벌트에 저장
+  // TODO wif 값 벌트에 저장
 
   const results = {
     address: payment.address,
-    privateKey: privateKey.toString("hex"),
-    publicKey: publicKey.toString("hex"),
     wif,
-    privates,
   };
 
-  return payment.address;
+  return results;
 };

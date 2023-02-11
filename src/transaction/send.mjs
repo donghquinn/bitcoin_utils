@@ -9,7 +9,6 @@ import fetch from 'node-fetch';
  */
 export const sendToAddress = async (
   txId
-
 ) => {
   const headers = {
     authorization: toBasicAuth("testuser", "1234"),
