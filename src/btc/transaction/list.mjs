@@ -1,5 +1,5 @@
-import { toBasicAuth } from '../common/common.mjs';
 import fetch from 'node-fetch';
+import { toBasicAuth } from '../common/common.mjs';
 
 /**
  * @param {*} address fromAddress

@@ -7,7 +7,7 @@
       "./src/types",
     ],
     "lib": ["ESNext"],
-    "allowJs": false,
+    "allowJs": true,
     "strict": true, 
     "target": "ESNext",
     "module": "ESNext",
