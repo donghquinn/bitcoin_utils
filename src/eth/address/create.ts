@@ -1,12 +1,8 @@
-import Web3 from 'web3';
-import { generateMnemonic } from './mnemonic';
-import { generateSeed } from './seed';
 import { web3Base } from 'eth/common/base';
+import { generateSeed } from './base';
 
 export const createAddress = (mnemonic: string) => {
   const web3 = web3Base();
-  
-  // const mnemonic = generateMnemonic();
 
   const { seed } = generateSeed(mnemonic);
 
