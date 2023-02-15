@@ -8,7 +8,12 @@ export const createTransaction = async (fromAddress: string, toAddress: string, 
     to: toAddress,
     from: fromAddress,
     value,
+    gas: 0,
   };
 
   const gas = await web3.eth.estimateGas(rawTransaction);
+
+  rawTransaction.gas = gas;
+
+  return rawTransaction;
 };
