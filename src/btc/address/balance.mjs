@@ -12,7 +12,7 @@ export const getAddressBalance = async (address, networkType) => {
   }
 
 
-  const route = '/address/state';
+  const route = process.env.BTC_ADDR_ROUTE;
 
   const requestUrl = `${url}${route}/${address}`;
 

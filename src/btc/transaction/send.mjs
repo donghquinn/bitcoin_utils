@@ -29,8 +29,8 @@ export const sendToAddress = async (txId, networkType) => {
     // // const quickNodeUrl = `${process.env.TESTNET_URL}/${process.env.TESTNET_TOKEN}`;
     let nodeUrl;
 
-    if (networkType === "main") { nodeUrl = process.env.MAINNET_NODE; }
-    if (networkType === "test") { nodeUrl = process.env.TESTNET_NODE; }
+    if (networkType === "main") { nodeUrl = process.env.BTC_MAINNET_NODE; }
+    if (networkType === "test") { nodeUrl = process.env.BTC_TESTNET_NODE; }
 
     const response = await (await fetch(nodeUrl, options)).json();
 

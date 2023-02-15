@@ -24,8 +24,8 @@ export const isValidAddress = async (address, networkType) => {
 
   let nodeUrl;
 
-  if (networkType === "main") nodeUrl = process.env.MAINNET_NODE;
-  if (networkType === "test") nodeUrl = process.env.TESTNET_NODE;
+  if (networkType === "main") nodeUrl = process.env.BTC_MAINNET_NODE;
+  if (networkType === "test") nodeUrl = process.env.BTC_TESTNET_NODE;
 
   const response = await (await fetch(nodeUrl, options)).text();
 

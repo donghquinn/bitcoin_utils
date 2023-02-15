@@ -9,8 +9,8 @@ export const getLists = async (address, networkType) => {
   try {
     let url;
 
-    if (networkType === "main") url = process.env.MAINNET_NODE;
-    if (networkType === "test") url = process.env.TESTNET_NODE;
+    if (networkType === "main") url = process.env.BTC_MAINNET_NODE;
+    if (networkType === "test") url = process.env.BTC_TESTNET_NODE;
 
 
     const headers = {
