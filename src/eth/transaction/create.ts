@@ -1,10 +1,11 @@
 import { web3Base } from "eth/common/base"
+import { RawTransaction } from "eth/types/rawtx.types";
 
 
 export const createTransaction = async (fromAddress: string, toAddress: string, value: number) => {
   const web3 = web3Base();
 
-  const rawTransaction  = {
+  const rawTransaction: RawTransaction  = {
     to: toAddress,
     from: fromAddress,
     value,
