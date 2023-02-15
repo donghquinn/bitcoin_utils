@@ -3,16 +3,16 @@ import { generateMnemonic } from './mnemonic';
 import { generateSeed } from './seed';
 import { web3Base } from 'eth/common/base';
 
-export const createAddress = () => {
+export const createAddress = (mnemonic: string) => {
   const web3 = web3Base();
   
-  const mnemonic = generateMnemonic();
+  // const mnemonic = generateMnemonic();
 
   const { seed } = generateSeed(mnemonic);
 
   const bufferSeed = seed.toString('hex');
 
-  const address = web3.eth.accounts.create(bufferSeed);
+  const {address, privateKey} = web3.eth.accounts.create(bufferSeed);
 
-  return address;
+  return {address, privateKey};
 }

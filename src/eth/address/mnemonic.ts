@@ -5,8 +5,6 @@ export const generateMnemonic = () => {
 
   const mnemonic = bip39.generateMnemonic();
 
-  console.log(mnemonic);
-
   const isValid = bip39.validateMnemonic(mnemonic);
 
   if (!isValid) {
