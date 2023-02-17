@@ -1,7 +1,7 @@
 import { config } from "dotenv";
 import { getAddressBalance } from './address/balance.mjs';
 import { createAddress } from "./address/create.mjs";
-import { generateMnemonic } from "./address/mnemonic.mjs";
+import { generateMnemonic } from "./address/mnemonic.js";
 import { createTransaction } from "./transaction/create.mjs";
 import { getLists } from "./transaction/list.mjs";
 import { sendToAddress } from "./transaction/send.mjs";
@@ -16,7 +16,7 @@ config();
  * @param {*} fee number
  * @param {*} networkType main | test
  */
-const test = async (fromAddress, wif, toAddress, value, fee, networkType) => {
+const test = async (fromAddress, wif, value, fee, networkType) => {
   try {
     const mnemonic = generateMnemonic();
 
@@ -29,7 +29,7 @@ const test = async (fromAddress, wif, toAddress, value, fee, networkType) => {
     const { script, index, txid, hex } = await getLists(address, networkType);
 
     // TODO WIF 관리 (저장 위치 등)
-    const transaction = await createTransaction(fromAddress, value, balance, fee, wif, toAddress, script, index, txid, hex, networkType);
+    const transaction = await createTransaction(fromAddress, value, balance, fee, wif, address, script, index, txid, hex, networkType);
 
     await sendToAddress(transaction, networkType);
   } catch (error) {
@@ -37,6 +37,8 @@ const test = async (fromAddress, wif, toAddress, value, fee, networkType) => {
     throw new Error(error);
   }
 }
+
+await test("mgLnLKYWdNZefhDikv1B5V8CCSBT1ec27d", "cQRSUbyZdnZ2PCqCwPDuxN8rsF9GAc7AKRXLyuSY15bGr6ogGjDi", 1, 1, "test")
 
 /**
  * mnemonic - 완료

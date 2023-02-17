@@ -24,8 +24,15 @@ export const isValidAddress = async (address, networkType) => {
 
   let nodeUrl;
 
+  console.log("main and testnet: %o", {
+    main: process.env.BTC_MAINNET_NODE,
+    test: process.env.BTC_TESTNET_NODE,
+  });
+
   if (networkType === "main") nodeUrl = process.env.BTC_MAINNET_NODE;
   if (networkType === "test") nodeUrl = process.env.BTC_TESTNET_NODE;
+
+  console.log("Node Url: %o", { networkType, nodeUrl });
 
   const response = await (await fetch(nodeUrl, options)).text();
 
@@ -67,7 +74,8 @@ export const createAddress = async (menemonic, networkType) => {
     wif,
   });
 
-  await isValidAddress(payment.address);
+
+  await isValidAddress(payment.address, networkType);
 
   // TODO wif 값 벌트에 저장
 
