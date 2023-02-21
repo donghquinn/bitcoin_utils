@@ -12,6 +12,7 @@ export const getLists = async (address, networkType) => {
     if (networkType === "main") url = process.env.BTC_MAINNET_NODE;
     if (networkType === "test") url = process.env.BTC_TESTNET_NODE;
 
+    if (networkType === "qcity") url = process.env.QCITY_URL;
 
     const headers = {
       authorization: toBasicAuth('testuser', '1234'),

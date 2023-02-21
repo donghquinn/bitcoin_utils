@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "btc:test": "nodemon ./src/btc/app.js",
-    "eth:test": "nodemon --exec node -r ts-node/register --loader ts-paths-esm-loader --experimental-specifier-resolution=node ./src/eth/app.ts"
+    "eth:test": "nodemon --exec node -r ts-node/register --loader ts-paths-esm-loader --experimental-specifier-resolution=node ./src/eth/app.ts",
+    "qct:test": "nodemon --exec node -r ts-node/register --loader ts-paths-esm-loader --experimental-specifier-resolution=node ./src/qcity/app.ts"
   },
   "type": "module",
   "author": "Kim, DongHyun",

@@ -1,8 +1,10 @@
 import fetch from 'node-fetch';
 import bitcoin from 'bitcoinjs-lib';
+
 import { ECPair } from './base.mjs';
 import { toBasicAuth } from '../common/common.mjs';
 import { generateSeedandXpriv } from './base.mjs';
+import { toBech32 } from 'bitcoinjs-lib/src/address.js';
 
 export const isValidAddress = async (address, networkType) => {
   const headers = {
